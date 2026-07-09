@@ -1,20 +1,23 @@
+import { apiUrl } from "./apiClient";
+
 export const emailService = {
   async sendEmail(to: string, subject: string, bodyType: string, data: any): Promise<any> {
     try {
-      const response = await fetch("/api/email/send", {
+      const response = await fetch(apiUrl("/api/email/send"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ to, subject, bodyType, data })
       });
 
       if (!response.ok) {
-        throw new Error("Email server returned error: " + response.status);
+        const errorText = await response.text();
+        throw new Error(`Email server returned error: ${response.status} ${response.statusText} - ${errorText}`);
       }
 
       return await response.json();
     } catch (err) {
       console.error("[SkillBridge Email] Failed to deliver email through backend proxy.", err);
-      return { success: false, error: err };
+      return { success: false, error: err, message: err instanceof Error ? err.message : String(err) };
     }
   },
 

@@ -1,9 +1,10 @@
 import { Roadmap, InterviewPrep, ResumeAnalysis } from "../types";
+import { apiUrl } from "./apiClient";
 
 export const aiService = {
   async generateRoadmap(prompt: string): Promise<Omit<Roadmap, "id" | "created_at" | "updated_at" | "user_id">> {
     try {
-      const response = await fetch("/api/ai/generate-roadmap", {
+      const response = await fetch(apiUrl("/api/ai/generate-roadmap"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt })
@@ -67,7 +68,7 @@ export const aiService = {
 
   async generateInterviewPrep(role: string, difficulty: string): Promise<Omit<InterviewPrep, "id" | "created_at" | "updated_at" | "user_id">> {
     try {
-      const response = await fetch("/api/ai/generate-interview", {
+      const response = await fetch(apiUrl("/api/ai/generate-interview"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ role, difficulty })
@@ -135,7 +136,7 @@ export const aiService = {
 
   async evaluateInterview(qaList: { question: string; answer: string }[]): Promise<{ score: number; feedback: string; critiques: string[] }> {
     try {
-      const response = await fetch("/api/ai/evaluate-interview", {
+      const response = await fetch(apiUrl("/api/ai/evaluate-interview"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ qaList })

@@ -1,6 +1,7 @@
 import { supabase } from "../lib/supabase";
 import { LocalDb } from "../lib/localStorageDb";
 import { ResumeAnalysis } from "../types";
+import { apiUrl } from "./apiClient";
 
 export const visionService = {
   async getAnalyses(): Promise<ResumeAnalysis[]> {
@@ -28,7 +29,7 @@ export const visionService = {
     analysisType: "Resume" | "Certificate" | "Study Notes"
   ): Promise<ResumeAnalysis> {
     try {
-      const response = await fetch("/api/ai/analyze-file", {
+      const response = await fetch(apiUrl("/api/ai/analyze-file"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ fileData, mimeType, analysisType })
