@@ -112,7 +112,7 @@ const SEED_RESUME_ANALYSIS = [
   {
     id: "res-1",
     user_id: "user-123",
-    extractedName: "Sanket R Resume",
+    extractedName: "Your  Resume",
     detectedCategory: "Resume",
     summary: "Clear layout with high academic performance, but missing modern backend framework experience.",
     skills: ["Java", "SQL", "C++", "HTML/CSS", "Git"],

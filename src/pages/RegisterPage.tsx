@@ -410,7 +410,7 @@ export const RegisterPage: React.FC = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         className="w-full bg-[#050811]/70 border border-white/5 rounded-xl py-2.5 pl-10 pr-4 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all duration-300 shadow-inner"
-                        placeholder="Sanket R"
+                        placeholder="Your Name"
                         required
                       />
                     </div>
@@ -429,7 +429,7 @@ export const RegisterPage: React.FC = () => {
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-full bg-[#050811]/70 border border-white/5 rounded-xl py-2.5 pl-10 pr-4 text-sm text-slate-100 placeholder-slate-600 focus:outline-none focus:border-purple-500/50 focus:ring-1 focus:ring-purple-500/50 transition-all duration-300 shadow-inner"
-                        placeholder="sanketr980@gmail.com"
+                        placeholder="Your Email"
                         required
                       />
                     </div>
