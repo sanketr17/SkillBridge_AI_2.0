@@ -1,0 +1,8 @@
+{
+  "name": "SkillBridge AI",
+  "description": "Bridging Academia and Industry through AI-powered learning paths, resume analysis, and interview readiness.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
